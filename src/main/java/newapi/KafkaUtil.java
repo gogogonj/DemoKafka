@@ -15,11 +15,11 @@ public class KafkaUtil {
     public static KafkaProducer<String, String> getProducer() {
         if (kp == null) {
             Properties props = new Properties();
-            System.setProperty("java.security.auth.login.config", "/home/wangwei/opt/test/kafka_client_jaas_admin.conf"); // 环境变量添加，需要输入配置文件的路径
-            props.put("security.protocol", "SASL_PLAINTEXT");
-            props.put("sasl.mechanism", "PLAIN");
+//            System.setProperty("java.security.auth.login.config", "/home/wangwei/opt/test/kafka_client_jaas_admin.conf"); // 环境变量添加，需要输入配置文件的路径
+//            props.put("security.protocol", "SASL_PLAINTEXT");
+//            props.put("sasl.mechanism", "PLAIN");
 
-            props.put("bootstrap.servers", "127.0.0.1:9092");
+            props.put("bootstrap.servers", "132.228.28.190:9092,132.228.28.191:9092,132.228.28.192:9092");
             props.put("acks", "1");
             props.put("retries", 1);
             props.put("batch.size", 16384);
@@ -37,11 +37,11 @@ public class KafkaUtil {
     public static KafkaConsumer<String, String> getConsumer() {
         if(kc == null) {
             Properties props = new Properties();
-            System.setProperty("java.security.auth.login.config", "/home/wangwei/opt/test/kafka_client_jaas_alice.conf"); // 环境变量添加，需要输入配置文件的路径
-            props.put("security.protocol", "SASL_PLAINTEXT");
-            props.put("sasl.mechanism", "PLAIN");
+//            System.setProperty("java.security.auth.login.config", "/home/wangwei/opt/test/kafka_client_jaas_alice.conf"); // 环境变量添加，需要输入配置文件的路径
+//            props.put("security.protocol", "SASL_PLAINTEXT");
+//            props.put("sasl.mechanism", "PLAIN");
 
-            props.put("bootstrap.servers", "127.0.0.1:9092");
+            props.put("bootstrap.servers", "132.228.28.190:9092,132.228.28.191:9092,132.228.28.192:9092");
             props.put("group.id", "test");
             props.put("enable.auto.commit", "true");
             props.put("auto.commit.interval.ms", "1000");

@@ -6,6 +6,7 @@ import org.apache.kafka.streams.processor.ProcessorContext;
 import org.apache.kafka.streams.state.KeyValueIterator;
 import org.apache.kafka.streams.state.KeyValueStore;
 
+
 /**
  * Created by AI on 2017/4/6.
  */
@@ -29,6 +30,7 @@ public class MyProcessor implements Processor<String, String> {
 
     @Override
     public void process(String dummy, String line) {
+        System.out.println("line=============================="+line);
         String[] words = line.toLowerCase().split(" ");
 
         for (String word : words) {
@@ -58,7 +60,8 @@ public class MyProcessor implements Processor<String, String> {
 
     @Override
     public void close() {
-        // close the key-value store
-        this.kvStore.close();
+        // close any resources managed by this processor.
+        // Note: Do not close any StateStores as these are managed
+        // by the library
     }
 };

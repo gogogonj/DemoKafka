@@ -13,7 +13,7 @@ public class MyProducer {
             Producer<String, String> producer = KafkaUtil.getProducer();
             int i = 0;
             while(true) {
-                ProducerRecord<String, String> record = new ProducerRecord<String, String>("replication-test", String.valueOf(i), "this is message"+i);
+                ProducerRecord<String, String> record = new ProducerRecord<String, String>("replication-test", String.valueOf(i), "java"+i+",c,js,web");
                 producer.send(record, new Callback() {
                     public void onCompletion(RecordMetadata metadata, Exception e) {
                         if (e != null)

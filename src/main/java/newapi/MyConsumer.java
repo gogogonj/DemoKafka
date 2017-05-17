@@ -16,7 +16,7 @@ public class MyConsumer {
         KafkaConsumer<String, String> consumer = KafkaUtil.getConsumer();
         consumer.subscribe(Arrays.asList("replication-test"));
         consumer.seekToBeginning(new ArrayList<TopicPartition>());
-
+        //consumer.seekToEnd(new ArrayList<TopicPartition>());
         while(true) {
             ConsumerRecords<String, String> records = consumer.poll(1000);
             for(ConsumerRecord<String, String> record : records) {
